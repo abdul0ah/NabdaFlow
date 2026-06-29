@@ -25,203 +25,349 @@
     --text:#eafff9;
     --text-soft:#aacfc6;
     --text-dim:#7faea2;
+    --logo-light:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==');
   }
-  *{margin:0;padding:0;box-sizing:border-box}
-  body{background:var(--bg-deep);color:var(--text);font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.5;overflow-x:hidden}
-  .container{max-width:1200px;margin:0 auto;padding:0 20px}
-  header{padding:40px 0;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);position:relative;z-index:100}
-  .logo{font-size:28px;font-weight:600;letter-spacing:-0.5px;background:linear-gradient(135deg,var(--mint),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  nav{display:flex;gap:40px}
-  nav a{text-decoration:none;color:var(--text-soft);font-size:14px;font-weight:500;transition:color 0.3s}
-  nav a:hover{color:var(--mint)}
-  .cta-btn{background:linear-gradient(135deg,var(--mint),var(--cyan));color:var(--bg-deep);padding:10px 24px;border-radius:8px;text-decoration:none;font-weight:600;font-size:14px;border:none;cursor:pointer;transition:opacity 0.3s}
-  .cta-btn:hover{opacity:0.9}
-  .hero{padding:120px 0;text-align:center;position:relative}
-  .hero-badge{display:inline-block;background:var(--panel);border:1px solid var(--line);padding:8px 16px;border-radius:20px;margin-bottom:24px;font-size:12px;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.5px}
-  h1{font-family:'Fraunces';font-size:64px;line-height:1.2;margin-bottom:20px;font-weight:500;letter-spacing:-1px}
-  h1 span{background:linear-gradient(135deg,var(--mint),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-  .hero p{font-size:20px;color:var(--text-soft);margin-bottom:40px;max-width:600px;margin-left:auto;margin-right:auto}
-  .hero-ctas{display:flex;gap:16px;justify-content:center;margin-bottom:60px}
-  .hero-ctas .cta-btn{padding:14px 32px;font-size:16px}
-  .secondary-btn{background:transparent;border:1px solid var(--line-2);color:var(--text);padding:14px 32px;border-radius:8px;text-decoration:none;font-weight:600;font-size:16px;cursor:pointer;transition:all 0.3s}
-  .secondary-btn:hover{border-color:var(--line);background:var(--panel)}
-  .hero-visual{position:relative;height:400px;margin-top:60px;background:linear-gradient(180deg,var(--panel) 0%,var(--bg-2) 100%);border:1px solid var(--line);border-radius:12px;display:flex;align-items:center;justify-content:center;overflow:hidden}
-  .hero-visual::before{content:'';position:absolute;width:300px;height:300px;background:radial-gradient(circle,var(--cyan) 0%,transparent 70%);filter:blur(80px);opacity:0.3;animation:pulse 4s ease-in-out infinite}
-  @keyframes pulse{0%,100%{transform:scale(1)};50%{transform:scale(1.1)}}
-  .hero-visual-text{position:relative;z-index:1;color:var(--text-dim);font-size:16px}
-  .features{padding:100px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .section-title{font-family:'Fraunces';font-size:42px;text-align:center;margin-bottom:80px;font-weight:500}
-  .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:40px}
-  .feature-card{background:var(--panel);border:1px solid var(--line);padding:40px;border-radius:12px;transition:all 0.3s}
-  .feature-card:hover{border-color:var(--line-2);background:var(--panel-2)}
-  .feature-icon{width:48px;height:48px;background:linear-gradient(135deg,var(--mint),var(--cyan));border-radius:8px;margin-bottom:24px;display:flex;align-items:center;justify-content:center;font-size:24px}
-  .feature-card h3{font-size:20px;margin-bottom:12px;color:var(--text)}
-  .feature-card p{color:var(--text-soft);font-size:14px;line-height:1.6}
-  .how-it-works{padding:100px 0}
-  .how-it-works h2{font-family:'Fraunces';font-size:42px;text-align:center;margin-bottom:60px;font-weight:500}
-  .timeline{position:relative;padding:40px 0}
-  .timeline::before{content:'';position:absolute;left:50%;transform:translateX(-50%);width:2px;height:100%;background:linear-gradient(180deg,var(--line) 0%,transparent 100%);z-index:0}
-  .timeline-item{display:grid;grid-template-columns:1fr 1fr;gap:60px;margin-bottom:60px;align-items:center;position:relative;z-index:1}
-  .timeline-item:nth-child(even) .timeline-content{order:2}
-  .timeline-item:nth-child(even) .timeline-marker{order:1}
-  .timeline-marker{width:24px;height:24px;background:var(--mint);border-radius:50%;border:4px solid var(--bg-deep);margin:0 auto;position:relative;box-shadow:0 0 0 8px var(--bg-deep),0 0 0 10px var(--mint)}
-  .timeline-content{background:var(--panel);padding:30px;border:1px solid var(--line);border-radius:8px}
-  .timeline-content h3{color:var(--mint);font-size:18px;margin-bottom:12px}
-  .timeline-content p{color:var(--text-soft);font-size:14px}
-  @media(max-width:768px){
-    nav{display:none}
-    h1{font-size:42px}
-    .hero p{font-size:16px}
-    .timeline::before{display:none}
-    .timeline-item{grid-template-columns:1fr;gap:20px}
-    .timeline-item:nth-child(even) .timeline-content{order:0}
-    .timeline-item:nth-child(even) .timeline-marker{order:0}
-    .timeline-marker{margin-left:0}
+  @media(prefers-color-scheme:light){
+    :root{--bg-deep:#f8f8f8;--bg-0:#ffffff;--text:#0d2a25;--text-soft:#4a7a72;--text-dim:#8ba39c;--panel:#f0f0f0;--panel-2:#e8e8e8;}
   }
-  .waitlist-section{padding:80px 0;text-align:center;background:linear-gradient(135deg,var(--panel) 0%,var(--panel-2) 100%);border:1px solid var(--line);border-radius:12px;margin:100px 0}
-  .waitlist-section h2{font-family:'Fraunces';font-size:42px;margin-bottom:20px;font-weight:500}
-  .waitlist-section p{color:var(--text-soft);font-size:16px;margin-bottom:40px}
-  .waitlist-form{max-width:400px;margin:0 auto;display:flex;gap:12px}
-  .waitlist-form input{flex:1;padding:12px 16px;background:var(--bg-0);border:1px solid var(--line);border-radius:8px;color:var(--text);font-family:'Inter';font-size:14px;outline:none;transition:border-color 0.3s}
-  .waitlist-form input::placeholder{color:var(--text-dim)}
-  .waitlist-form input:focus{border-color:var(--line-2)}
-  .success-message{display:none;background:var(--bg-0);padding:20px;border-radius:8px;color:var(--mint);text-align:center;font-weight:600}
-  .success-message.show{display:block}
-  footer{padding:40px 0;border-top:1px solid var(--line);text-align:center;color:var(--text-dim);font-size:12px}
-  .px{position:relative}
-  @media(max-width:1024px){
-    .timeline{padding:20px 0}
-    .timeline-item{gap:30px}
-  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI','Roboto','Oxygen','Ubuntu','Cantarell','Fira Sans','Droid Sans','Helvetica Neue',sans-serif;background:var(--bg-deep);color:var(--text);line-height:1.6;overflow-x:hidden;}
+  @supports(height:1dvh){body{height:100dvh;}}
+  .text-sm{font-size:0.875rem;}
+  .text-base{font-size:1rem;}
+  .text-lg{font-size:1.125rem;}
+  .text-xl{font-size:1.25rem;}
+  .text-2xl{font-size:1.5rem;}
+  .text-3xl{font-size:2rem;}
+  .text-4xl{font-size:2.5rem;}
+  .text-5xl{font-size:3rem;}
+  h1,h2,h3,h4,h5,h6{font-family:'Space Grotesk',sans-serif;font-weight:600;line-height:1.2;}
+  h1{font-size:3.5rem;}
+  h2{font-size:2.5rem;}
+  h3{font-size:1.875rem;}
+  a{color:var(--cyan);text-decoration:none;transition:color 0.3s;}
+  a:hover{color:var(--mint);}
+  button{font-family:inherit;border:none;cursor:pointer;transition:all 0.3s;}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px;}
+  .btn-primary{background:linear-gradient(135deg, var(--teal-bright) 0%, var(--mint) 100%);color:var(--bg-deep);padding:12px 28px;border-radius:8px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;font-size:0.875rem;box-shadow:0 8px 20px rgba(31,184,158,0.3);}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(31,184,158,0.4);}
+  .btn-secondary{background:transparent;color:var(--cyan);border:1px solid var(--line-2);padding:10px 24px;border-radius:6px;font-weight:500;transition:all 0.3s;}
+  .btn-secondary:hover{border-color:var(--cyan);background:rgba(47,233,255,0.05);}
+  section{padding:60px 0;}
+  @media(max-width:768px){section{padding:40px 0;} h1{font-size:2.5rem;} h2{font-size:1.875rem;}}
+  .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;background:linear-gradient(135deg, var(--bg-deep) 0%, var(--bg-1) 50%, var(--bg-deep) 100%);}
+  .hero-bg{position:absolute;top:50%;left:50%;width:600px;height:600px;transform:translate(-50%,-50%);background:radial-gradient(circle, rgba(31,184,158,0.1) 0%, transparent 70%);filter:blur(60px);animation:pulse 8s ease-in-out infinite;z-index:0;}
+  @keyframes pulse{0%,100%{opacity:0.3;} 50%{opacity:0.6;}}
+  .orb{position:absolute;border-radius:50%;opacity:0.05;}
+  .orb-1{top:20%;right:10%;width:300px;height:300px;background:radial-gradient(circle,var(--cyan),transparent);animation:float 15s ease-in-out infinite;}
+  .orb-2{bottom:10%;left:5%;width:200px;height:200px;background:radial-gradient(circle,var(--teal-bright),transparent);animation:float 20s ease-in-out infinite reverse;}
+  @keyframes float{0%,100%{transform:translate(0,0);} 50%{transform:translate(50px,-30px);}}
+  .hero-content{position:relative;z-index:2;text-align:center;max-width:900px;}
+  .hero h1{font-size:clamp(2rem, 8vw, 4rem);margin-bottom:20px;background:linear-gradient(135deg, var(--mint) 0%, var(--cyan) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .hero-subtitle{font-size:1.25rem;color:var(--text-soft);margin-bottom:40px;line-height:1.8;}
+  .hero-cta{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:60px;}
+  @media(max-width:640px){.hero-cta{flex-direction:column;} .hero-cta button{width:100%;}}
+  .name-section{text-align:center;padding:80px 0;position:relative;overflow:hidden;}
+  .name-section::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(to bottom, rgba(31,184,158,0.03), transparent);pointer-events:none;}
+  .name-statement{font-family:'Fraunces',serif;font-size:clamp(1.5rem, 6vw, 3.5rem);margin-bottom:20px;font-weight:500;line-height:1.4;}
+  .name-statement-en{color:var(--mint);}
+  .name-statement-ar{color:var(--cyan);display:none;}
+  body[dir="ar"] .name-statement-en{display:none;}
+  body[dir="ar"] .name-statement-ar{display:block;}
+  .name-definition{color:var(--text-dim);font-size:1rem;margin-bottom:10px;}
+  .name-quote{color:var(--text-soft);font-size:1.125rem;font-style:italic;margin-top:20px;}
+  .issues{display:grid;grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:24px;margin-top:40px;}
+  .issue-card{background:linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);border:1px solid var(--line);padding:32px;border-radius:12px;transition:all 0.3s;cursor:pointer;position:relative;overflow:hidden;}
+  .issue-card::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(135deg, rgba(31,184,158,0.1) 0%, transparent 100%);opacity:0;transition:opacity 0.3s;}
+  .issue-card:hover{border-color:var(--cyan);background:linear-gradient(135deg, var(--panel-2) 0%, var(--panel) 100%);transform:translateY(-4px);}
+  .issue-card:hover::before{opacity:1;}
+  .issue-title{font-size:1.25rem;font-weight:600;margin-bottom:12px;color:var(--mint);}
+  .issue-desc{color:var(--text-soft);font-size:0.95rem;}
+  .timeline{position:relative;padding:60px 0;}
+  .timeline-inner{max-width:600px;margin:0 auto;position:relative;}
+  .timeline::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:linear-gradient(to bottom, var(--cyan), var(--teal));transform:translateX(-50%);}
+  @media(max-width:768px){.timeline::before{left:30px;}}
+  .timeline-fill{position:absolute;left:50%;top:0;width:2px;background:linear-gradient(to bottom, var(--cyan), var(--mint));transform:translateX(-50%);transition:height 0.2s ease-out;height:0%;}
+  @media(max-width:768px){.timeline-fill{left:30px;}}
+  .timeline-step{position:relative;margin-bottom:50px;opacity:0.6;transition:opacity 0.3s;}
+  .timeline-step.lit{opacity:1;}
+  .timeline-marker{position:absolute;left:50%;top:0;width:16px;height:16px;background:var(--cyan);border:3px solid var(--bg-deep);border-radius:50%;transform:translateX(-50%);transition:all 0.3s;box-shadow:0 0 0 8px rgba(47,233,255,0.1);}
+  .timeline-step.lit .timeline-marker{box-shadow:0 0 0 12px rgba(47,233,255,0.3);}
+  @media(max-width:768px){.timeline-marker{left:30px;}}
+  .timeline-content{margin-left:100px;padding:20px;border-radius:8px;border:1px solid var(--line);background:var(--panel);}
+  @media(max-width:768px){.timeline-content{margin-left:80px;}}
+  .timeline-step:nth-child(odd) .timeline-content{text-align:right;margin-left:0;margin-right:100px;}
+  @media(max-width:768px){.timeline-step:nth-child(odd) .timeline-content{margin-right:80px;}}
+  body[dir="ar"] .timeline-step:nth-child(odd) .timeline-content{text-align:right;margin-left:100px;margin-right:0;}
+  @media(max-width:768px){body[dir="ar"] .timeline-step:nth-child(odd) .timeline-content{margin-left:80px;margin-right:0;}}
+  .timeline-title{font-weight:600;color:var(--mint);margin-bottom:8px;}
+  .timeline-desc{color:var(--text-soft);font-size:0.95rem;}
+  .services-wrapper{max-width:900px;margin:0 auto;}
+  .services-tabs{display:flex;gap:8px;margin-bottom:40px;flex-wrap:wrap;}
+  .service-tab{padding:12px 24px;background:var(--panel);border:1px solid var(--line);border-radius:6px;cursor:pointer;transition:all 0.3s;color:var(--text-soft);font-weight:500;}
+  .service-tab.active{background:linear-gradient(135deg, var(--teal-bright) 0%, var(--mint) 100%);color:var(--bg-deep);border-color:var(--mint);}
+  .service-tab:hover{border-color:var(--cyan);}
+  .service-content{background:linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);border:1px solid var(--line-2);border-radius:12px;padding:40px;display:none;}
+  .service-content.active{display:block;animation:fadeIn 0.3s;
+  @keyframes fadeIn{from{opacity:0;} to{opacity:1;}}
+  .service-title{font-size:1.5rem;margin-bottom:16px;color:var(--mint);}
+  .service-desc{color:var(--text-soft);line-height:1.8;}
+  .service-features{list-style:none;margin-top:20px;}
+  .service-features li{padding:8px 0;color:var(--text-soft);}
+  .service-features li::before{content:'→ ';color:var(--cyan);margin-right:8px;}
+  .faq{background:linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);border:1px solid var(--line-2);padding:40px;border-radius:12px;max-width:900px;margin:0 auto;}
+  .faq-item{border-bottom:1px solid var(--line);padding:20px 0;}
+  .faq-item:last-child{border-bottom:none;}
+  .faq-question{cursor:pointer;font-weight:600;color:var(--mint);display:flex;justify-content:space-between;align-items:center;user-select:none;}
+  .faq-question:hover{color:var(--cyan);}
+  .faq-question::after{content:'▼';font-size:0.75rem;transition:transform 0.3s;transform:rotate(0deg);}
+  .faq-item.open .faq-question::after{transform:rotate(-180deg);}
+  .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.3s ease-out;color:var(--text-soft);}
+  .faq-item.open .faq-answer{max-height:500px;margin-top:16px;}
+  .cta-section{text-align:center;}
+  .cta-title{font-size:2.5rem;margin-bottom:20px;}
+  .cta-subtitle{color:var(--text-soft);font-size:1.125rem;margin-bottom:40px;}
+  .waitlist-section{max-width:600px;margin:0 auto;padding:60px 0;}
+  .waitlist-title{text-align:center;font-size:2rem;margin-bottom:10px;}
+  .waitlist-desc{text-align:center;color:var(--text-soft);margin-bottom:40px;}
+  .waitlist-form{display:flex;flex-direction:column;gap:16px;}
+  .form-group{display:flex;flex-direction:column;}
+  .form-group label{margin-bottom:6px;font-weight:500;color:var(--text);}
+  .form-group input,.form-group textarea{background:var(--panel);border:1px solid var(--line);padding:12px;border-radius:6px;color:var(--text);font-family:inherit;transition:all 0.3s;}
+  .form-group input::placeholder,.form-group textarea::placeholder{color:var(--text-dim);}
+  .form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--cyan);background:var(--panel-2);box-shadow:0 0 0 3px rgba(47,233,255,0.1);}
+  .form-group textarea{min-height:80px;resize:vertical;}
+  .waitlist-submit{background:linear-gradient(135deg, var(--teal-bright) 0%, var(--mint) 100%);color:var(--bg-deep);padding:14px;border-radius:6px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;font-size:0.875rem;margin-top:8px;}
+  .waitlist-submit:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(31,184,158,0.3);}
+  #wlSuccess{display:none;text-align:center;padding:40px;border-radius:12px;background:linear-gradient(135deg, var(--panel) 0%, var(--panel-2) 100%);border:1px solid var(--line-2);}
+  #wlSuccess.show{display:block;animation:slideUp 0.5s;}
+  @keyframes slideUp{from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);}}
+  .success-icon{font-size:3rem;margin-bottom:12px;}
+  .success-title{font-size:1.5rem;margin-bottom:8px;color:var(--mint);}
+  .success-text{color:var(--text-soft);}
+  footer{background:linear-gradient(135deg, var(--bg-0) 0%, var(--bg-1) 100%);border-top:1px solid var(--line);padding:40px 0;margin-top:80px;}
+  footer .container{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;}
+  .footer-left{color:var(--text-soft);font-size:0.875rem;}
+  .footer-links{display:flex;gap:24px;flex-wrap:wrap;}
+  .footer-links a{color:var(--text-soft);transition:color 0.3s;}
+  .footer-links a:hover{color:var(--cyan);}
+  .lang-toggle{background:var(--panel);border:1px solid var(--line);padding:8px 16px;border-radius:6px;cursor:pointer;color:var(--text-soft);font-weight:500;transition:all 0.3s;font-size:0.875rem;}
+  .lang-toggle:hover{border-color:var(--cyan);color:var(--cyan);}
+  @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}}
+  @media(max-width:768px){h1{font-size:2rem;} h2{font-size:1.5rem;} section{padding:30px 0;} .container{padding:0 16px;}}
 </style>
 </head>
-<body>
-<header>
-  <div class="container" style="display:flex;justify-content:space-between;align-items:center;width:100%">
-    <div class="logo">NabdaFlow</div>
-    <nav>
-      <a href="#features">Features</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#waitlist">Join Waitlist</a>
-    </nav>
-    <button class="cta-btn">Get Started</button>
+<body dir="en">
+<nav style="display:flex;justify-content:space-between;align-items:center;padding:20px 40px;background:linear-gradient(to bottom,rgba(6,23,20,0.8),transparent);backdrop-filter:blur(10px);position:sticky;top:0;z-index:100;border-bottom:1px solid var(--line);">
+  <div style="font-family:Space Grotesk;font-weight:700;font-size:1.5rem;background:linear-gradient(135deg,var(--mint),var(--cyan));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">NabdaFlow</div>
+  <button class="lang-toggle" onclick="document.body.dir=document.body.dir==='en'?'ar':'en';document.body.setAttribute('dir',document.body.dir);">عربي / EN</button>
+</nav>
+<section class="hero">
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="hero-bg" data-px="20"></div>
+  <div class="hero-content">
+    <h1><span data-en>A smarter operating system for your clinic</span><span data-ar style="display:none;">نظام أذكى لعيادتك</span></h1>
+    <p class="hero-subtitle"><span data-en>From after-hours chaos to seamless patient journeys. AI that knows your clinic's rhythm.</span><span data-ar style="display:none;">من الفوضى بعد ساعات العمل إلى رحلات مريض سلسة. ذكاء اصطناعي يفهم إيقاع عيادتك.</span></p>
+    <div class="hero-cta">
+      <a href="https://cal.com/nabdaflow/15-minute-clinic-consultation" class="btn-primary"><span data-en>Book a consult</span><span data-ar style="display:none;">احجز استشارة</span></a>
+      <button class="btn-secondary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'});"><span data-en>What we build</span><span data-ar style="display:none;">ما نبنيه</span></button>
+    </div>
   </div>
-</header>
-
-<main>
-  <section class="hero">
-    <div class="container">
-      <div class="hero-badge">AI-Powered Clinic Management</div>
-      <h1>A <span>smarter operating system</span> for your clinic</h1>
-      <p>Streamline patient communication, automate scheduling, and boost efficiency—all through WhatsApp.</p>
-      <div class="hero-ctas">
-        <button class="cta-btn">Start Free Trial</button>
-        <button class="secondary-btn">Watch Demo</button>
+</section>
+<section class="name-section">
+  <div class="container">
+    <div class="name-statement">
+      <span class="name-statement-en" data-en>The pulse of clinic operations.</span>
+      <span class="name-statement-ar" data-ar style="display:none;">نَبْض النجاح.</span>
+    </div>
+    <div class="name-definition">
+      <span data-en>Nabda (نَبْض) = pulse. Flow = everything connected.</span>
+      <span data-ar style="display:none;">نَبْض = النبض. تدفق = كل شيء متصل.</span>
+    </div>
+    <p class="name-quote">
+      <span data-en>Keep your clinic alive. Keep it flowing.</span>
+      <span data-ar style="display:none;">حافظ على عيادتك حية. حافظ على تدفقها.</span>
+    </p>
+  </div>
+</section>
+<section style="background:var(--bg-1);">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:30px;"><span data-en>Three problems we solve.</span><span data-ar style="display:none;">ثلاث مشاكل نحلها.</span></h2>
+    <div class="issues">
+      <div class="issue-card">
+        <div class="issue-title"><span data-en>After-hours messages</span><span data-ar style="display:none;">الرسائل بعد ساعات العمل</span></div>
+        <p class="issue-desc"><span data-en>Patients message anytime. Your team can't reply 24/7. Leads go cold.</span><span data-ar style="display:none;">يرسل المرضى الرسائل في أي وقت. فريقك لا يستطيع الرد 24/7. تفقد الفرص.</span></p>
       </div>
-      <div class="hero-visual">
-        <div class="hero-visual-text">Dashboard Preview</div>
+      <div class="issue-card">
+        <div class="issue-title"><span data-en>No-shows (lost revenue)</span><span data-ar style="display:none;">عدم الحضور (خسارة إيرادات)</span></div>
+        <p class="issue-desc"><span data-en>Appointments are booked but patients don't show up. Wasted chair time, frustrated dentists.</span><span data-ar style="display:none;">يتم حجز المواعيد لكن المريض لا يحضر. وقت مهدر، أطباء محبطين.</span></p>
+      </div>
+      <div class="issue-card">
+        <div class="issue-title"><span data-en>Repeating the same answers</span><span data-ar style="display:none;">تكرار نفس الإجابات</span></div>
+        <p class="issue-desc"><span data-en>"Do you accept insurance?" "What are your hours?" Your team answers the same 10 questions every day.</span><span data-ar style="display:none;">تكرار نفس الأسئلة يومياً. فريقك يهدر الوقت على الأسئلة نفسها.</span></p>
       </div>
     </div>
-  </section>
-
-  <section id="features" class="features">
-    <div class="container">
-      <h2 class="section-title">Why Clinics Love NabdaFlow</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>WhatsApp Native</h3>
-          <p>No app downloads needed. Patients already use WhatsApp—meet them where they are.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">⚡</div>
-          <h3>Instant Scheduling</h3>
-          <p>Patients book appointments directly through chat. Syncs with your calendar automatically.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">💬</div>
-          <h3>Smart Responses</h3>
-          <p>AI handles common questions, appointment reminders, and follow-ups 24/7.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">📊</div>
-          <h3>Real-Time Analytics</h3>
-          <p>Track patient engagement, response times, and booking trends in one dashboard.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🔒</div>
-          <h3>HIPAA Compliant</h3>
-          <p>Enterprise-grade encryption and compliance for healthcare data protection.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🚀</div>
-          <h3>Easy Setup</h3>
-          <p>Get started in minutes. No technical knowledge required. Seamless integration.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="how-it-works" class="how-it-works">
-    <div class="container">
-      <h2>How It Works</h2>
-      <div class="timeline" id="timeline">
-        <div class="timeline-item">
+  </div>
+</section>
+<section style="background:var(--bg-0);">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:40px;"><span data-en>How we work</span><span data-ar style="display:none;">كيف نعمل</span></h2>
+    <div class="timeline" id="timeline">
+      <div class="timeline-fill" id="tlFill"></div>
+      <div class="timeline-inner">
+        <div class="timeline-step">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <h3>1. Connect Your Clinic</h3>
-            <p>Link your clinic's WhatsApp Business account and calendar system to NabdaFlow in just a few clicks.</p>
+            <div class="timeline-title"><span data-en>Discovery call</span><span data-ar style="display:none;">مكالمة اكتشاف</span></div>
+            <p class="timeline-desc"><span data-en>We learn your clinic's unique pain points and workflow.</span><span data-ar style="display:none;">نتعلم نقاط الألم الفريدة لعيادتك.</span></p>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-step">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <h3>2. Configure Smart Responses</h3>
-            <p>Set up AI-powered replies for common questions, appointment info, and office hours.</p>
+            <div class="timeline-title"><span data-en>Solution design</span><span data-ar style="display:none;">تصميم الحل</span></div>
+            <p class="timeline-desc"><span data-en>We map the exact features and integrations that fit your clinic's ops.</span><span data-ar style="display:none;">نحدد الميزات والتكاملات التي تناسب عمليات عيادتك.</span></p>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-step">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <h3>3. Patients Interact</h3>
-            <p>Your patients message your clinic's WhatsApp, and NabdaFlow handles initial engagement automatically.</p>
+            <div class="timeline-title"><span data-en>Build & integrate</span><span data-ar style="display:none;">البناء والتكامل</span></div>
+            <p class="timeline-desc"><span data-en>We build the solution and connect it to your existing tools (WhatsApp, booking system, etc).</span><span data-ar style="display:none;">نبني الحل ونربطه بأدواتك الحالية.</span></p>
           </div>
         </div>
-        <div class="timeline-item">
+        <div class="timeline-step">
           <div class="timeline-marker"></div>
           <div class="timeline-content">
-            <h3>4. Seamless Handoff</h3>
-            <p>For complex queries, staff review and respond—all within the same chat interface.</p>
+            <div class="timeline-title"><span data-en>Launch & scale</span><span data-ar style="display:none;">إطلاق وتوسع</span></div>
+            <p class="timeline-desc"><span data-en>Live deployment. We monitor, iterate, and improve based on real patient interactions.</span><span data-ar style="display:none;">النشر المباشر. نراقب ونحسن بناءً على التفاعلات الحقيقية.</span></p>
           </div>
         </div>
       </div>
     </div>
-  </section>
-
-  <section id="waitlist" class="waitlist-section">
-    <div class="container">
-      <h2>Ready to Transform Your Clinic?</h2>
-      <p>Join the waitlist and be among the first to revolutionize patient communication.</p>
-      <form id="waitlistForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="waitlist-form">
-        <input type="email" name="email" placeholder="Enter your email" required>
-        <button type="submit" class="cta-btn" style="padding:12px 24px">Join Waitlist</button>
-      </form>
-      <div id="wlSuccess" class="success-message">✓ Thanks for joining! We'll be in touch soon.</div>
+  </div>
+</section>
+<section id="services" style="background:var(--bg-1);">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:40px;"><span data-en>What we build</span><span data-ar style="display:none;">ما نبنيه</span></h2>
+    <div class="services-wrapper">
+      <div class="services-tabs" id="serviceTabs"></div>
+      <div id="serviceContent"></div>
     </div>
-  </section>
-</main>
-
+  </div>
+</section>
+<section style="background:var(--bg-0);">
+  <div class="container">
+    <h2 style="text-align:center;margin-bottom:40px;"><span data-en>Common questions</span><span data-ar style="display:none;">أسئلة شائعة</span></h2>
+    <div class="faq">
+      <div class="faq-item">
+        <div class="faq-question"><span data-en>Is this PDPL compliant?</span><span data-ar style="display:none;">هل هذا متوافق مع PDPL؟</span></div>
+        <div class="faq-answer"><span data-en>Yes. We follow UAE personal data protection rules strictly. Patient data is encrypted, stored locally, and never sold or shared.</span><span data-ar style="display:none;">نعم. نتبع قوانين حماية البيانات الشخصية في الإمارات بدقة.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span data-en>Will patients trust an AI handling messages?</span><span data-ar style="display:none;">هل سيثق المرضى بالذكاء الاصطناعي؟</span></div>
+        <div class="faq-answer"><span data-en>The AI only handles routine inquiries and booking. Clinical questions are escalated to a real dentist. Patients see a smooth experience, not a robot.</span><span data-ar style="display:none;">الذكاء الاصطناعي يتعامل مع الاستفسارات الروتينية فقط. الأسئلة السريرية تنتقل إلى طبيب حقيقي.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span data-en>How long does it take to set up?</span><span data-ar style="display:none;">كم من الوقت يستغرق الإعداد؟</span></div>
+        <div class="faq-answer"><span data-en>2-4 weeks from first call to live. Most of that is learning your clinic's rhythm, not technical setup.</span><span data-ar style="display:none;">2-4 أسابيع من المكالمة الأولى إلى الإطلاق.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span data-en>What if it makes a mistake with a patient?</span><span data-ar style="display:none;">ماذا لو ارتكب خطأ مع مريض؟</span></div>
+        <div class="faq-answer"><span data-en>Mistakes are rare because we scope carefully. When they happen, your team is notified instantly, and a real dentist takes over. We iterate to prevent repeat errors.</span><span data-ar style="display:none;">الأخطاء نادرة جداً. عند حدوثها، يتم إخطار فريقك فوراً.</span></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question"><span data-en>How much does this cost?</span><span data-ar style="display:none;">كم تكلفة هذا؟</span></div>
+        <div class="faq-answer"><span data-en>Pricing is custom based on your clinic size, message volume, and features. We typically see ROI within the first month. Let's talk specifics on a call.</span><span data-ar style="display:none;">التسعير مخصص بناءً على حجم عيادتك. عادة ما نرى العائد على الاستثمار في الشهر الأول.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="cta-section" style="text-align:center;">
+  <div class="container">
+    <h2 class="cta-title"><span data-en>Ready to keep your clinic flowing?</span><span data-ar style="display:none;">جاهز لإبقاء عيادتك تسير بسلاسة؟</span></h2>
+    <p class="cta-subtitle"><span data-en>Let's talk about what's possible.</span><span data-ar style="display:none;">دعنا نتحدث عن الإمكانيات.</span></p>
+    <a href="https://cal.com/nabdaflow/15-minute-clinic-consultation" class="btn-primary"><span data-en>Book a 15-minute consult</span><span data-ar style="display:none;">احجز استشارة 15 دقيقة</span></a>
+  </div>
+</section>
+<section class="waitlist-section">
+  <h2 class="waitlist-title"><span data-en>Join the early adopters</span><span data-ar style="display:none;">انضم إلى المتبنين الأوائل</span></h2>
+  <p class="waitlist-desc"><span data-en>Get updates on new features and clinic success stories.</span><span data-ar style="display:none;">احصل على التحديثات حول الميزات الجديدة.</span></p>
+  <form id="waitlistForm" action="https://formspree.io/f/mnjkpqyz" method="POST" class="waitlist-form">
+    <div class="form-group">
+      <label for="name"><span data-en>Your Name</span><span data-ar style="display:none;">اسمك</span></label>
+      <input type="text" id="name" name="name" placeholder="Ahmed Al-Mansouri" required>
+    </div>
+    <div class="form-group">
+      <label for="clinic"><span data-en>Clinic Name</span><span data-ar style="display:none;">اسم العيادة</span></label>
+      <input type="text" id="clinic" name="clinic" placeholder="Smile Dental Clinic" required>
+    </div>
+    <div class="form-group">
+      <label for="email"><span data-en>Email</span><span data-ar style="display:none;">البريد الإلكتروني</span></label>
+      <input type="email" id="email" name="email" placeholder="ahmed@smiledentalclinic.ae" required>
+    </div>
+    <div class="form-group">
+      <label for="whatsapp"><span data-en>WhatsApp</span><span data-ar style="display:none;">واتس آب</span></label>
+      <input type="tel" id="whatsapp" name="whatsapp" placeholder="+971 50 123 4567" required>
+    </div>
+    <div class="form-group">
+      <label for="interest"><span data-en>What interests you most?</span><span data-ar style="display:none;">ما الذي يهمك أكثر؟</span></label>
+      <textarea id="interest" name="interest" placeholder="E.g. cutting down on no-shows, automating after-hours messages..."></textarea>
+    </div>
+    <button type="submit" class="waitlist-submit"><span data-en>Join the waitlist</span><span data-ar style="display:none;">انضم إلى قائمة الانتظار</span></button>
+  </form>
+  <div id="wlSuccess">
+    <div class="success-icon">✓</div>
+    <h3 class="success-title"><span data-en>You're in!</span><span data-ar style="display:none;">تم!</span></h3>
+    <p class="success-text"><span data-en>We'll be in touch soon with updates and next steps.</span><span data-ar style="display:none;">سنتواصل معك قريباً برسالة تأكيد.</span></p>
+  </div>
+</section>
 <footer>
   <div class="container">
-    <p>&copy; 2024 NabdaFlow. Transforming clinic operations, one message at a time.</p>
+    <div class="footer-left">
+      <p><span data-en>NabdaFlow. Made for clinics in the UAE.</span><span data-ar style="display:none;">NabdaFlow. مصنوع للعيادات في الإمارات.</span></p>
+    </div>
+    <div class="footer-links">
+      <a href="#" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'}); return false;"><span data-en>Services</span><span data-ar style="display:none;">الخدمات</span></a>
+      <a href="mailto:hello@nabdaflow.ae" onclick="location.href='mailto:hello@nabdaflow.ae'; return false;"><span data-en>Contact</span><span data-ar style="display:none;">اتصل</span></a>
+    </div>
   </div>
 </footer>
-
 <script>
-  var ticking=false,timeline=document.getElementById('timeline'),tlFill=null,steps=[];
+  var serviceData=[
+    {name:'Patient Communication',ar:'تواصل المريض',desc:'Automated WhatsApp responses for common patient inquiries (hours, insurance, services, directions). Escalates clinical questions to your team.',ar_desc:'ردود WhatsApp تلقائية للاستفسارات الشائعة. تنقل الأسئلة السريرية إلى فريقك.',features:['24/7 WhatsApp availability','Instant FAQ answers','Smart escalation to staff','Patient satisfaction tracking']},
+    {name:'Bookings & No-Shows',ar:'الحجوزات وعدم الحضور',desc:'Confirm appointments automatically, send reminders (24h / 2h before), and follow up on no-shows with re-engagement messages.',ar_desc:'تأكيد المواعيد تلقائياً وإرسال تذكيرات.',features:['Automated appointment confirmations','Intelligent reminder scheduling','No-show follow-up campaigns','Reduces no-shows by ~30%']},
+    {name:'Patient Qualification',ar:'تأهيل المريض',desc:'Before appointments, gather info: budget, treatment interests, insurance. Your dentist walks in prepared, increasing case value.',ar_desc:'اجمع البيانات قبل الموعد: الميزانية، الفائدة، التأمين.',features:['Pre-appointment discovery','Budget & interest gathering','Case value increase (30-40%)','Better treatment planning']},
+    {name:'Website & Landing Pages',ar:'الموقع الإلكتروني',desc:'Professional, bilingual clinic websites and landing pages. No coding needed. Converts patient interest into bookings.',ar_desc:'مواقع عيادة احترافية ثنائية اللغة.',features:['Bilingual (EN/AR) design','Mobile-responsive','Built-in booking links','SEO-ready']},
+    {name:'Marketing & Growth',ar:'التسويق والنمو',desc:'Content calendars, clinic-branded assets, patient education materials, referral automation. Everything AI-written, human-reviewed.',ar_desc:'محتوى تقويم التسويق والمواد التعليمية.',features:['Monthly content calendars','Patient education materials','Referral automation','Social media templates']},
+    {name:'Custom Clinic Systems',ar:'أنظمة عيادة مخصصة',desc:'Anything else you need: AI voice agents, patient feedback analysis, staff dashboards, integrations with your PMS. We build it.',ar_desc:'وكلاء صوتيين ذكيين وتحليل ردود المرضى.',features:['AI voice agents','Feedback analysis','Staff dashboards','Custom PMS integrations']}
+  ];
+  var tabsDiv=document.getElementById('serviceTabs');
+  var contentDiv=document.getElementById('serviceContent');
+  serviceData.forEach(function(svc,idx){
+    var tab=document.createElement('button');
+    tab.className='service-tab'+(idx===0?' active':'');
+    tab.innerHTML='<span data-en>'+svc.name+'</span><span data-ar style="'+(idx===0?'':'display:none;')+'">'+svc.ar+'</span>';
+    tab.onclick=function(){document.querySelectorAll('.service-tab').forEach(function(t){t.classList.remove('active');});document.querySelectorAll('.service-content').forEach(function(c){c.classList.remove('active');});this.classList.add('active');contentDiv.children[idx].classList.add('active');};
+    tabsDiv.appendChild(tab);
+    var content=document.createElement('div');
+    content.className='service-content'+(idx===0?' active':'');
+    content.innerHTML='<h3 class="service-title"><span data-en>'+svc.name+'</span><span data-ar style="'+(idx===0?'':'display:none;')+'">'+svc.ar+'</span></h3><p class="service-desc"><span data-en>'+svc.desc+'</span><span data-ar style="'+(idx===0?'':'display:none;')+'">'+svc.ar_desc+'</span></p><ul class="service-features">'+svc.features.map(function(f){return '<li>'+f+'</li>';}).join('')+'</ul>';
+    contentDiv.appendChild(content);
+  });
+  // FAQ toggle
+  document.querySelectorAll('.faq-question').forEach(function(q){q.addEventListener('click',function(){q.closest('.faq-item').classList.toggle('open');});});
+  // Parallax
+  var pxEls=document.querySelectorAll('[data-px]');
+  var ticking=false;
+  var timeline=document.getElementById('timeline');
+  var tlFill=document.getElementById('tlFill');
+  var steps=document.querySelectorAll('.timeline-step');
+  var vh=window.innerHeight;
   function onScroll(){
-    var vh=window.innerHeight;
-    var pxEls=document.querySelectorAll('[data-px]');
+    vh=window.innerHeight;
     for(var i=0;i<pxEls.length;i++){
       var el=pxEls[i],r=el.getBoundingClientRect(),center=r.top+r.height/2,off=(center-vh/2)/vh,sp=parseFloat(el.getAttribute('data-px'));
       el.style.transform='translate3d(0,'+(off*sp).toFixed(1)+'px,0)';
@@ -243,7 +389,6 @@
   }
   window.addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(onScroll);ticking=true;}},{passive:true});
   window.addEventListener('resize',onScroll);onScroll();
-
   // form ajax
   var form=document.getElementById('waitlistForm');
   form.addEventListener('submit',function(ev){ev.preventDefault();fetch(form.action,{method:'POST',body:new FormData(form),headers:{'Accept':'application/json'}}).then(function(res){if(res.ok){form.style.display='none';document.getElementById('wlSuccess').classList.add('show');}else{form.submit();}}).catch(function(){form.submit();});});
